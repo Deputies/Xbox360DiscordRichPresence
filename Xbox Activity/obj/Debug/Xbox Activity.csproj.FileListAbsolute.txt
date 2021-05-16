@@ -1,0 +1,12 @@
+C:\Users\Pro\source\repos\Xbox Activity\Xbox Activity\obj\Debug\Xbox Activity.csprojAssemblyReference.cache
+C:\Users\Pro\source\repos\Xbox Activity\Xbox Activity\obj\Debug\Xbox_Activity.Form1.resources
+C:\Users\Pro\source\repos\Xbox Activity\Xbox Activity\obj\Debug\Xbox_Activity.Properties.Resources.resources
+C:\Users\Pro\source\repos\Xbox Activity\Xbox Activity\obj\Debug\Xbox Activity.csproj.GenerateResource.cache
+C:\Users\Pro\source\repos\Xbox Activity\Xbox Activity\obj\Debug\Xbox Activity.csproj.CoreCompileInputs.cache
+C:\Users\Pro\source\repos\Xbox Activity\Xbox Activity\bin\Debug\Xbox Activity.exe.config
+C:\Users\Pro\source\repos\Xbox Activity\Xbox Activity\bin\Debug\Xbox Activity.exe
+C:\Users\Pro\source\repos\Xbox Activity\Xbox Activity\bin\Debug\Xbox Activity.pdb
+C:\Users\Pro\source\repos\Xbox Activity\Xbox Activity\bin\Debug\JRPC.dll
+C:\Users\Pro\source\repos\Xbox Activity\Xbox Activity\obj\Debug\Xbox Activity.csproj.CopyComplete
+C:\Users\Pro\source\repos\Xbox Activity\Xbox Activity\obj\Debug\Xbox Activity.exe
+C:\Users\Pro\source\repos\Xbox Activity\Xbox Activity\obj\Debug\Xbox Activity.pdb
