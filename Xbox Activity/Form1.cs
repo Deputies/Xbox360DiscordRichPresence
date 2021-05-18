@@ -27,9 +27,6 @@ namespace Xbox_Activity
         public static IXboxConsole jtag;
         public byte[] titleid;
         public byte[] ProfileID;
-        public static string HaloReachTitleID = "4D53085B";
-        public static string DashboardTitleID = "FFFE07D1";
-        public static string AvatarEditorTitleID = "584D07D1";
 
         public Form1()
         {
