@@ -111,5 +111,66 @@ namespace Xbox_Activity
         {
             Clipboard.SetText(BitConverter.ToString(titleid).Replace("-", ""));
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            richTextBox1.Clear();
+            Extensions.DiscordRpc.Initialize("843287927663886377", ref this.handlers, true, null);
+            Extensions.DiscordRpc.UpdatePresence(ref this.presence);
+            HttpWebRequest request = WebRequest.Create("https://peoplehub.xboxlive.com/users/me/people/xuids(" + XUID.Text + ")/decoration/broadcast,multiplayersummary,preferredcolor,socialManager,tournamentSummary") as HttpWebRequest;
+            request.Method = "GET";
+            request.Headers.Add("x-xbl-contract-version", "1");
+            request.Headers.Add("Accept-Encoding", "gzip; q=1.0, deflate; q=0.5, identity; q=0.1");
+            request.Headers.Add("Accept-Language", "en-US, en, en-AU, en");
+            request.Headers.Add("Authorization", XSTS.Text);
+            request.Headers.Add("Signature", "AAAAAQHW0Zzb5TQBf9TLmReR62PYoOpscvtjUKjNjXl0Un5Eyi5Vrk2klBrnllMW4N/UsTxpB945Q2y2l9xQ6MYYqkHlIsDKOhUw6g==");
+            WebResponse response = request.GetResponse();
+            Stream dataStream = response.GetResponseStream();
+            StreamReader reader = new StreamReader(dataStream);
+            var str = reader.ReadToEnd();
+            string result = FindTextBetween(str, "displayPicRaw", ",");
+            string leet = result.Replace("\"", "");
+            string bruh = leet.Replace(":", "");
+            string GamerPicture = bruh.Replace("http", "http:");
+            string result1 = FindTextBetween(str, "gamertag", ",");
+            string leet1 = result1.Replace("\"", "");
+            string Gamertag = leet1.Replace(":", "");
+            string result2 = FindTextBetween(str, "gamerScore", ",");
+            string leet2 = result2.Replace("\"", "");
+            string GamerScore = leet2.Replace(":", "");
+            string result3 = FindTextBetween(str, "xboxOneRep", ",");
+            string leet3 = result3.Replace("\"", "");
+            string XboxOneRep = leet3.Replace(":", "");
+            string result4 = FindTextBetween(str, "presenceText", ",");
+            string leet4 = result4.Replace("\"", "");
+            string PresenceText = leet4.Replace(":", "");
+            richTextBox1.AppendText(Gamertag + "," + GamerPicture + "," + GamerScore + "," + XboxOneRep + "," + PresenceText);
+            this.presence.details = ($"GT:{Gamertag}");
+            this.presence.state = PresenceText;
+            this.presence.largeImageKey = "xboxone";
+            this.presence.smallImageKey = "xb1c";
+            this.presence.largeImageText = $"GamerScore:{GamerScore}!";
+            this.presence.smallImageText = $"Reputation:{XboxOneRep}";
+            this.BoxArt.ImageLocation = GamerPicture;
+            StatusTxt.Text = $"Status:{PresenceText}";
+            TitleIDTxt.Text = "Xbox One Mode";
+            Extensions.DiscordRpc.UpdatePresence(ref this.presence);
+        }
+        public string FindTextBetween(string text, string left, string right)
+        {
+            // TODO: Validate input arguments
+
+            int beginIndex = text.IndexOf(left); // find occurence of left delimiter
+            if (beginIndex == -1)
+                return string.Empty; // or throw exception?
+
+            beginIndex += left.Length;
+
+            int endIndex = text.IndexOf(right, beginIndex); // find occurence of right delimiter
+            if (endIndex == -1)
+                return string.Empty; // or throw exception?
+
+            return text.Substring(beginIndex, endIndex - beginIndex).Trim();
+        }
     }
 }
